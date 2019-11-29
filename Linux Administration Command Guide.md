@@ -1,6 +1,6 @@
 # Linux Administration Guide
 
-** **Creating a user account** ** 
+**1)** **Creating a User Account**
 
 $ sudo useradd -s /bin/bash -d /home/ktpl -m hemang
 
@@ -11,11 +11,11 @@ $ sudo useradd -s /bin/bash -d /home/ktpl -m hemang
 	-m – Create the user’s home directory
 
 
-** **Set a Password for user** ** 
+**2)** **Set a Password for user**
 
 	$ passwd hemang
 
-** **File and Directory Permissions** ** 
+**3)** **File and Directory Permissions**
 
 * **Ownership of Linux Files:** Every file and directory on your Unix/Linux system is assigned 3 types of owner, given below.
 
@@ -53,7 +53,7 @@ $ sudo useradd -s /bin/bash -d /home/ktpl -m hemang
 		x = Execute Permission (1)
 		- = No Permission (0)
 
-***Changing file/directory permissions with 'chmod' command***
+**4)** **Changing File and Directory Permissions using chmod**
 
 We can use the 'chmod' command which stands for 'change mode'. Using this command, we can set permissions (Read, Write, Execute) on a Files / Directory for the Owner, Group and the World.
 
@@ -102,4 +102,17 @@ In the above-given terminal window, we have changed the permissions of the file 
 	* World can only read
 
 **This is shown as '-rwxrw-r-**
+
+This is how you can change the permissions on file by assigning an absolute number.
+
+**5)** **Delete a User from Linux**
+
+	$ sudo userdel hemang
+	$ sudo rm -r /home/hemang
+
+**6)** **SSH**
+
+The SSH protocol (also referred to as Secure Shell) is a method for secure remote login from one computer to another. The Port number of SSH is 22.
+
+- **SSH Key based Authentication:** While using this authentication, We don't need to provide root user passwords to every Sys Admins. we can simply ask them to generate a SSH keys using Puttygen and tell them to provide his Public key after that we can white-list their key for Login.
 
