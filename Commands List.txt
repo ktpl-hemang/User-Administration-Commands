@@ -1,0 +1,7 @@
+1) Adding a User on Linux
+
+# useradd -d /home/ktpl -s /bin/bash ktpl
+
+2) Set a Password for newly added User
+
+# passwd ktpl
