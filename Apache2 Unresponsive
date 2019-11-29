@@ -1,0 +1,19 @@
+Apache2 Unresponsive
+
+----- Perform below action when Apache Service was unreponsive and not able to Restart / Stop -----
+
+1) could be the apache already running in your system then please check the status of the service by running command service apache2 status if they said that [FAIL] apache2 is not running ... failed! it mean it is not running you can start by the command service apache2 start or sudo service apache2 start
+
+2) if you having not above problem please look at the PID file of apache2 by following command
+
+# cat /var/run/apache2/apache2.pid 
+
+which will give you the process ID of the apache it means you system accidentally shutdown without deleting the PID file so delete by following command
+
+# rm - rf/var/run/apache2/apache2.pid or sudo rm -rf/var/run/apache2/apache2.pid 
+
+and start again the server by following command 
+
+# service apache2 start or sudo service apache2 start
+
+Apache2 service should be back to Normal after performing above excercise. 
