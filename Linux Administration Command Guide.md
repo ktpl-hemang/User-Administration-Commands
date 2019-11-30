@@ -116,3 +116,34 @@ The SSH protocol (also referred to as Secure Shell) is a method for secure remot
 
 - **SSH Key based Authentication:** While using this authentication, We don't need to provide root user passwords to every Sys Admins. we can simply ask them to generate a SSH keys using Puttygen and tell them to provide his Public key after that we can white-list their key for Login.
 
+**7)** **Samba**
+
+A Samba file server enables file sharing across different operating systems over a network. It lets you access your desktop files from a laptop and share files with Windows and macOS users.
+
+- **Installing Samba**
+
+To install Samba, we run:
+
+	$ sudo apt update
+	$ sudo apt install samba
+
+We can check if the installation was successful by running:
+
+	$ whereis samba
+
+The following should be its output:
+
+	samba: /usr/sbin/samba /usr/lib/samba /etc/samba /usr/share/samba /usr/share/man/man7/samba.7.gz /usr/share/man/man8/samba.8.gz
+
+- **Setting up Samba**
+
+Now that Samba is installed, we need to create a directory for it to share:
+
+	$ mkdir /home/hemang/sambashare/
+
+The command above creates a new folder sambashare in our home directory which we will share later.
+
+The configuration file for Samba is located at /etc/samba/smb.conf. To add the new directory as a share, we edit the file by running:
+
+	$ sudo vi /etc/samba/smb.conf
+
