@@ -147,3 +147,36 @@ The configuration file for Samba is located at /etc/samba/smb.conf. To add the n
 
 	$ sudo vi /etc/samba/smb.conf
 
+At the bottom of the file, add the following lines:
+
+	[sambashare]
+    comment = Samba on Ubuntu
+    path = /home/hemang/sambashare
+    read only = no
+    browsable = yes
+    valid users = hemang
+
+**What we've just added in above config**
+
+- [sambashare]: The name inside the brackets is the name of our share.
+- comment: A brief description of the share.
+- path: The directory of our share.
+- read only: Permission to modify the contents of the share folder is only granted when the value of this directive is no.
+- browsable: When set to yes, file managers such as Ubuntu's default file manager will list this share under "Network" (it could also appear as browseable).
+- valid users: hemang can edit the contents on the sambashare directory. if we want to allow all the edit the contents on this shared directory, we can define "public = yes".
+
+after makeing changes to smb.conf, we need to add the user in samba using below command.
+
+	$ smbpasswd -a hemang
+
+above command will set the samba password for user hemang.
+
+Now that we have our new share configured, save it and restart Samba for it to take effect:
+
+	$ sudo service smbd restart
+
+**Connecting to Share**
+
+- On Ubuntu and othe nix systems: smb://10.16.16.55/sambashare
+- On Windows: \\10.16.16.55\sambashare
+
